@@ -9,7 +9,7 @@ use Laravel\Lumen\Routing\Controller as BaseController;
 class StudentController extends BaseController
 {
 
-    public function test($email)
+    public function getStudentClasses($email)
     {
       $userId = People::email($email)->first()->individuals_id;
       $members = classMemberships::membersId($userId)->get();

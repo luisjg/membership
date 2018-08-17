@@ -15,4 +15,4 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/test/{email}', 'StudentController@test');
+$router->get('/student/{email}/classes', 'StudentController@getStudentClasses');
