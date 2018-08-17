@@ -1,10 +1,9 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: nikit
- * Date: 8/15/2018
- * Time: 3:57 PM
- */
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
 class ClassMemberships extends Model
 {
     protected $table = 'nemo.classMemberships';
@@ -32,12 +31,7 @@ class ClassMemberships extends Model
         'member_status',
     ];
 
-    public function scopeEmail($query, $email)
-    {
-        return $query->where('email', $email. '@csun.edu');
-    }
-
-    public function scopeMemberId($query,$id)
+    public function scopeMembersId($query,$id)
     {
         return $query->where('members_id',$id);
     }
