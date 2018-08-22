@@ -18,7 +18,7 @@ class StudentController extends BaseController
 
       foreach($classesId as $classId)
       {
-        $push = classes::classesId($classId)->get();
+        $push = classes::classesId($classId)->first();
         array_push($result, $push);
       }
 

@@ -15,12 +15,15 @@ class APIKeyMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if ($request->has('api_key')) {
+        if (env('APP_SECRET') != $request->input('api_key')) {
 
-            return $next($request);
+          return response([
+            'status' => '400',
+            'success' => 'false',
+            'message' => 'Please check your API key'
+          ]);
         }
-        return response(['Unauthorized'], 401);
-
+        return $next($request);
     }
 
-}   
+}
