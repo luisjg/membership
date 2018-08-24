@@ -15,6 +15,13 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
+
+//The url for now will be /faculty/{emailUri}/classes
+
+//Create a faculty route that returns the classes that he has taught ever
+
+$router->get('/faculty/{emailUri}/classes','FacultyController@getClasses');
+
 $router->get('/student/{email}/classes', [
   'middleware' => 'APIkey',
   'uses' => 'StudentController@getStudentClasses'
