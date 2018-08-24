@@ -23,10 +23,10 @@ class FacultyController extends Controller {
         foreach($classes as $class){
             $queryBuilder = "{$class}";
             $temp = Classes::classesId($queryBuilder)
-                ->with('getInfo')
+               // ->with('getInfo')   /* commenting out because it is unnecessary extra information*/
                 ->get();
 
-//            $temp = Classes::getInfo();
+
             array_push($results, $temp);
         }
 
