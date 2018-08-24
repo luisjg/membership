@@ -13,17 +13,6 @@ class classMemberships extends Model
      *
      * @var array
      */
-    protected $fillable = [
-      'classes_id',
-      'term_id',
-      'term',
-      'class_number',
-      'members_id',
-      'members_uid',
-      'ad_hoc_member',
-      'confidential',
-      'member_status',
-    ];
 
     /**
      * The attributes excluded from the model's JSON form.

@@ -13,21 +13,7 @@ class classes extends Model
      *
      * @var array
      */
-    protected $fillable = [
-      'classes_id',
-      'term_id',
-      'session_code',
-      'term',
-      'class_number',
-      'course_id',
-      'subject',
-      'catalog_number',
-      'title',
-      'description',
-      'units',
-      'section_number',
-      'class_status',
-    ];
+    
 
     /**
      * The attributes excluded from the model's JSON form.

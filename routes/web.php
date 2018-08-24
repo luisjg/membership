@@ -15,10 +15,6 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-// $router->get('/student/{email}/classes', 'StudentController@getStudentClasses')
-// ->middleware('\App\Http\Middleware\APIKeyMiddleware::class');
-
-
 $router->get('/student/{email}/classes', [
   'middleware' => 'APIkey',
   'uses' => 'StudentController@getStudentClasses'

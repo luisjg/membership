@@ -13,19 +13,6 @@ class People extends Model
      *
      * @var array
      */
-    protected $fillable = [
-        'individuals_id',
-        'display_name',
-        'description',
-        'record_status',
-        'first_name',
-        'middle_name',
-        'last_name',
-        'common_name',
-        'confidential',
-        'affiliation',
-        'affiliation_status'
-    ];
 
     /**
      * The attributes excluded from the model's JSON form.
