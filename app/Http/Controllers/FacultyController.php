@@ -49,7 +49,8 @@ class FacultyController extends Controller {
           array_push($data, $temp);
         }
       }
-      return $this->jsonResponse($data);
+      $size = count($data);
+      return $this->jsonResponse($data, $size);
     }
 
 
