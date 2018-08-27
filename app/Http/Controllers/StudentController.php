@@ -22,8 +22,9 @@ class StudentController extends Controller
         $push = classes::classesId($classId)->first();
         array_push($data, $push);
       }
+      $size = count($data);
 
-      return $this->jsonResponse($data);
+      return $this->jsonResponse($data, $size);
     }
 
 }
