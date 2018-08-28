@@ -30,8 +30,9 @@ class FacultyController extends Controller {
 
             array_push($results, $temp);
         }
+        $size = count($results);
 
-        return $this->jsonResponse($results);
+        return $this->jsonResponse($results, $size);
     }
 
     public function getClassesWithTerm($term, $email){
