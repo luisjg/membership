@@ -33,4 +33,8 @@ class classes extends Model
       return $query->where('classes_id',$classesId);
     }
 
+    public function scopeTermId($query, $term)
+    {
+        return $query->where('term_id', $term);
+    }
 }

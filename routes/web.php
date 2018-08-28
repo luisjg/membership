@@ -26,3 +26,8 @@ $router->get('/student/{email}/classes', [
   'middleware' => 'APIkey',
   'uses' => 'StudentController@getStudentClasses'
 ]);
+
+$router->get('/student/{email}/classes/{term}', [
+    'middleware' => 'APIkey',
+    'uses' => 'StudentController@getStudentClasseswithTerms'
+]);
