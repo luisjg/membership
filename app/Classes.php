@@ -17,6 +17,11 @@ class Classes extends Model
         return $this->hasOne('App\ClassInfo', 'classes_id', 'entities_id');
     }
 
+    public function scopetermId($query, $term)
+    {
+      return $query->where('term_id', $term);
+    }
+
 
 
 }
