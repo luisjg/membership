@@ -6,6 +6,7 @@ use App\User;
 use App\Classes;
 use App\ClassInfo;
 use App\ClassMemberships;
+use App\Http\Controllers\Controller;
 
 
 class FacultyController extends Controller {
@@ -18,21 +19,26 @@ class FacultyController extends Controller {
             ->pluck('classes_id')
             ->toArray();
 
-        $results = [];
+        $results = Classes::classesId($classes)
+            ->get()
+            ->toArray();
 
-        foreach($classes as $class){
-            $queryBuilder = "{$class}";
-            $temp = Classes::classesId($queryBuilder)
-               // ->with('getInfo')   /* commenting out because it is unnecessary extra information*/
-                ->get();
+        $size = count($results);
 
-
-            array_push($results, $temp);
-        }
-
-        return $results;
+        return $this->jsonResponse($results, $size);
     }
 
+    public function getClassesWithTerm($term, $email){
+      $user = User::email($email)->first();
+      $classes = ClassMemberships::membersId($user->user_id)
+          ->instructorRole()
+          ->where('term_id', $term)
+          ->pluck('classes_id')
+          ->toArray();
 
+      $data = Classes::classesId($classes)->get()->toArray();
 
+      $size = count($data);
+      return $this->jsonResponse($data, $size);
+    }
 }

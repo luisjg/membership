@@ -7,9 +7,9 @@ class Classes extends Model
 {
     protected $table = 'bedrock.events';
 
-    public function scopeclassesId($query, $queryBuilder)
+    public function scopeclassesId($query, $classes)
     {
-        return $query->where('entities_id', $queryBuilder);
+      return $query->whereIn('entities_id', $classes);
     }
 
     public function getInfo()
