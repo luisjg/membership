@@ -8,10 +8,6 @@ use App\Http\Models\classes;
 use App\Http\Controllers\Controller;
 
 
-
-//student classes is not producing all the students classes
-//sameish problem with the terms one
-
 class StudentController extends Controller
 {
     public function getStudentClasses($email)
