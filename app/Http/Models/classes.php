@@ -30,11 +30,11 @@ class classes extends Model
 
     public function scopeClassesId($query, $classesId)
     {
-      return $query->where('classes_id',$classesId);
+      return $query->whereIn('classes_id',$classesId);
     }
 
     public function scopeTermId($query, $term)
     {
-        return $query->where('term_id', $term);
+        return $query->whereIn('term_id', $term);
     }
 }
