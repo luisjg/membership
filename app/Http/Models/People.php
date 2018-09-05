@@ -32,7 +32,7 @@ class People extends Model
 
     public function scopeEmail($query,$email)
     {
-        return $query->where('email','nr_'.$email.'@my.csun.edu');
+        return $query->where('email',$email.'@my.csun.edu');
     }
 
 }
