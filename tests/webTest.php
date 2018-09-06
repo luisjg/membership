@@ -11,7 +11,7 @@ class webTest extends TestCase
   */
   function a_request_was_loaded_successfully()
   {
-    $response = $this->get('/faculty/matthew.fritz/classes');
+    $response = $this->get('/faculty/nr_matthew.fritz/classes');
     //Loads all faculty classes route
 
     $this->assertEquals(200, $response->response->getData()->status);
@@ -21,7 +21,7 @@ class webTest extends TestCase
 
   function a_request_with_term_was_loaded_successfully()
   {
-    $response = $this->get('/faculty/matthew.fritz/classes/2173');
+    $response = $this->get('/faculty/nr_matthew.fritz/classes/2173');
     //Loads Faculy classes route by term
 
     $this->assertEquals(200, $response->response->getData()->status);
