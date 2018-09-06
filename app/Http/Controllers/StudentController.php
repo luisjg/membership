@@ -1,30 +1,48 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Controllers\Controller;
 use App\Http\Models\People;
 use App\Http\Models\classmemberships;
 use App\Http\Models\classes;
+use App\Http\Controllers\Controller;
 
-use Laravel\Lumen\Routing\Controller as BaseController;
 
 class StudentController extends Controller
 {
-
     public function getStudentClasses($email)
     {
       $userId = People::email($email)->first()->individuals_id;
-      $classesId = classMemberships::membersId($userId)->pluck('classes_id');
-      $data = [];
+      $classesId = classMemberships::membersId($userId)
+            ->pluck('classes_id')
+            ->toArray();
 
-      foreach($classesId as $classId)
-      {
-        $push = classes::classesId($classId)->first();
-        array_push($data, $push);
-      }
-      $size = count($data);
+      $results = classes::classesId($classesId)
+            ->get()
+            ->toArray();
 
-      return $this->jsonResponse($data, $size);
+      $size = count($results);
+
+      return $this->jsonResponse($results, $size);
+    }
+
+    public function getStudentClasseswithTerms($term, $email)
+    {
+        $userId = People::email($email)->first()->individuals_id;
+
+        $classesId = classMemberships::membersId($userId)
+            ->where('term_id', $term)
+            ->pluck('classes_id')
+            ->toArray();
+
+        $results = classes::ClassesId($classesId)
+            ->get()
+            ->toArray();
+
+        $size = count($results);
+
+        return $this->jsonResponse($results, $size);
     }
 
 }
