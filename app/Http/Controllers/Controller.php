@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Laravel\Lumen\Routing\Controller as BaseController;
 
+/*
+* this is the JSON header that is attached to every route
+*/
 class Controller extends BaseController
 {
     public function jsonResponse($data, $size)

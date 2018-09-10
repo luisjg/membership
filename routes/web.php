@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\StudentContoller;
+use App\Http\Controllers\Contoller;
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -21,6 +22,8 @@ $router->get('/', function () use ($router) {
 //Create a faculty route that returns the classes that he has taught ever
 
 $router->get('/faculty/{emailUri}/classes','FacultyController@getClasses');
+
+$router->get('/faculty/{emailUri}/classes/{term}', 'FacultyController@getClassesWithTerm');
 
 $router->get('/student/{email}/classes', [
   'middleware' => 'APIkey',
