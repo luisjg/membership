@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Http\Models\People;
 use App\Http\Models\classmemberships;
-use App\Http\Models\classes;
-use App\Http\Controllers\Controller;
+use App\Http\Models\Courses;
 
 
 class StudentController extends Controller
@@ -17,7 +16,7 @@ class StudentController extends Controller
             ->pluck('classes_id')
             ->toArray();
 
-      $results = classes::classesId($classesId)
+      $results = Courses::classesId($classesId)
             ->get()
             ->toArray();
 
@@ -35,7 +34,7 @@ class StudentController extends Controller
             ->pluck('classes_id')
             ->toArray();
 
-        $results = classes::ClassesId($classesId)
+        $results = Courses::ClassesId($classesId)
             ->get()
             ->toArray();
 
