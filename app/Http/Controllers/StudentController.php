@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Models\People;
-use App\Http\Models\classmemberships;
-use App\Http\Models\Courses;
+use App\Http\Models\ClassMemberships;
 use App\Http\Controllers\Controller;
+use App\Http\Models\People;
+use App\Http\Models\Courses;
 
 
 class StudentController extends Controller
@@ -13,8 +13,7 @@ class StudentController extends Controller
     public function getStudentClasses($email)
     {
       $userId = People::email($email)->first()->individuals_id;
-
-      $classesId = classMemberships::membersId($userId)
+      $classesId = ClassMemberships::membersId($userId)
             ->pluck('classes_id')
             ->toArray();
 
@@ -31,7 +30,7 @@ class StudentController extends Controller
     {
         $userId = People::email($email)->first()->individuals_id;
 
-        $classesId = classMemberships::membersId($userId)
+        $classesId = ClassMemberships::membersId($userId)
             ->where('term_id', $term)
             ->pluck('classes_id')
             ->toArray();
