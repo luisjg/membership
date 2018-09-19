@@ -5,7 +5,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Models\People;
 use App\Http\Models\classmemberships;
 use App\Http\Models\classes;
-use App\Http\Controllers\Controller;
 
 
 class StudentController extends Controller
