@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class classes extends Model
+class Courses extends Model
 {
 
     protected $table = 'omar.classes';
@@ -13,7 +13,7 @@ class classes extends Model
      *
      * @var array
      */
-    
+
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -21,16 +21,16 @@ class classes extends Model
      * @var array
      */
     protected $hidden = [
-      'class_type',
-      'enrollment_cap',
-      'enrollment_total',
-      'waitlist_cap',
-      'waitlist_total'
+        'class_type',
+        'enrollment_cap',
+        'enrollment_total',
+        'waitlist_cap',
+        'waitlist_total'
     ];
 
     public function scopeClassesId($query, $classesId)
     {
-      return $query->whereIn('classes_id',$classesId);
+        return $query->whereIn('classes_id',$classesId);
     }
 
     public function scopeTermId($query, $term)

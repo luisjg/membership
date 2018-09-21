@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class Classes extends Model
@@ -14,7 +14,7 @@ class Classes extends Model
 
     public function getInfo()
     {
-        return $this->hasOne('App\ClassInfo', 'classes_id', 'entities_id');
+        return $this->hasOne('App\Models\ClassInfo', 'classes_id', 'entities_id');
     }
 
     public function scopetermId($query, $term)
