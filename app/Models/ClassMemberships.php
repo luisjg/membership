@@ -17,6 +17,7 @@ class ClassMemberships extends Model
     {
         return $query->where('role_position', 'Instructor');
     }
+
     public function scopeMembersId($query,$members)
     {
         return $query->where('members_id',$members);
