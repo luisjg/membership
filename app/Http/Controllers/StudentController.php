@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Models\ClassMemberships;
 use App\Http\Controllers\Controller;
-use App\Http\Models\People;
-use App\Http\Models\Courses;
-
+use App\Models\People;
+use App\Models\Classmemberships;
+use App\Models\Courses;
 
 class StudentController extends Controller
 {
