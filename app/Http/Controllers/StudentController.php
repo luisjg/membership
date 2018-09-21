@@ -6,8 +6,6 @@ use App\Models\People;
 use App\Models\Classmemberships;
 use App\Models\Courses;
 
-
-
 class StudentController extends Controller
 {
     public function getStudentClasses($email)
