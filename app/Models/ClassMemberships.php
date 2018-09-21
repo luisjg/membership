@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -22,4 +22,5 @@ class ClassMemberships extends Model
     {
         return $query->where('members_id',$members);
     }
+
 }

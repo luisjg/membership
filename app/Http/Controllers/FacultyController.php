@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Classes;
-use App\ClassInfo;
-use App\ClassMemberships;
+use App\Models\User;
+use App\Models\Classes;
+use App\Models\ClassInfo;
+use App\Models\ClassMemberships;
 use App\Http\Controllers\Controller;
 
 
