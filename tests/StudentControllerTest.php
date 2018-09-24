@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Http\Controllers\StudentController;
 use App\routes\web;
 
 class StudentControllerTest extends TestCase {
@@ -22,9 +24,4 @@ class StudentControllerTest extends TestCase {
         $this->assertEquals(200, $response->response->getData()->status);
 
     }
-
-
-
-
-
 }
