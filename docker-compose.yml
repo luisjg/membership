@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+#----------SERVER--------#
+  webserver:
+    container_name: membership
+    image: csunmetalab/api:base
+    ports:
+      - '8080:80'
+    volumes:
+      - .:/var/www/html/
+  
+#----------COMPOSER--------#
+  composer:
+    restart: 'no'
+    container_name: membership_composer
+    image: composer:latest
+    command: install
+    volumes:
+      - .:/app/
