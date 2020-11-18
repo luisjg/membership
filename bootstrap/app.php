@@ -62,15 +62,13 @@ $app->singleton(
 |
 */
 
-// $app->middleware([
-//    App\Http\Middleware\ExampleMiddleware::class
-// ]);
+$app->middleware([
+    CSUNMetaLab\LumenForceHttps\Http\Middleware\ForceHttps::class,
+]);
 
 $app->routeMiddleware([
   'APIkey' => App\Http\Middleware\APIKeyMiddleware::class,
  ]);
-//     'auth' => App\Http\Middleware\Authenticate::class,
-// ]);
 
 /*
 |--------------------------------------------------------------------------
@@ -83,9 +81,10 @@ $app->routeMiddleware([
 |
 */
 
-// $app->register(App\Providers\AppServiceProvider::class);
-// $app->register(App\Providers\AuthServiceProvider::class);
-// $app->register(App\Providers\EventServiceProvider::class);
+$app->configure('proxypass');
+$app->register(CSUNMetaLab\LumenProxyPass\Providers\ProxyPassServiceProvider::class);
+$app->configure('forcehttps');
+$app->register(CSUNMetaLab\LumenForceHttps\Providers\ForceHttpsServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
@@ -97,14 +96,6 @@ $app->routeMiddleware([
 | can respond to, as well as the controllers that may handle them.
 |
 */
-
-$app->configure('proxypass');
-$app->register(CSUNMetaLab\LumenProxyPass\Providers\ProxyPassServiceProvider::class);
-$app->configure('forcehttps');
-$app->register(CSUNMetaLab\LumenForceHttps\Providers\ForceHttpsServiceProvider::class);
-$app->middleware([
-    CSUNMetaLab\LumenForceHttps\Http\Middleware\ForceHttps::class,
-]);
 
 $app->router->group([
     'namespace' => 'App\Http\Controllers',
